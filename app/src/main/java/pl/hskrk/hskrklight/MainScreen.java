@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -30,6 +31,9 @@ public class MainScreen extends ActionBarActivity {
         setContentView(R.layout.activity_main_screen);
         LightsAdapter = new ArrayAdapter<String>(this,R.layout.list_element);
         Lights = new ArrayList<Light>();
+        ListView LightsList = (ListView) findViewById(R.id.listView);
+        LightsList.setAdapter(LightsAdapter);
+        LightsList.setOnItemClickListener(null);
 
     }
     @Override
