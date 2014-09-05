@@ -4,16 +4,28 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+
+import java.util.ArrayList;
 
 
 public class MainScreen extends ActionBarActivity {
+    public final String UrlToggle = "http://light.at.hskrk.pl/api/v2/light/toggle/";
+    public final String UrlGet = "http://al2.hskrk.pl/api/v2/light/get_state/all";
+    private ArrayAdapter<String> LightsAdapter;
+    private static ArrayList<Light> Lights;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        LightsAdapter = new ArrayAdapter<String>(this,R.layout.list_element);
+        Lights = new ArrayList<Light>();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
     }
-
+    @Override
+    protected void onStart(){
+        super.onStart();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
