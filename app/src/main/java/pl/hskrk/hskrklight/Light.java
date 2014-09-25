@@ -32,6 +32,7 @@ public class Light {
     public String hasBeenLit(){
         if(on) return("on");
         else return("off");
+
     }
     public boolean getState(){
         return on;
