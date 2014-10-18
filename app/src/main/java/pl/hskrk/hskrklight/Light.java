@@ -1,8 +1,5 @@
 package pl.hskrk.hskrklight;
 
-/**
- * Created by Krzysiek on 2014-09-05.
- */
 public class Light {
     private String id;//zawiera nazwę przełącznika(światłe na które oddziałuje)
     //Contains name of Light bulb that is switched by described toggle
@@ -45,7 +42,7 @@ public class Light {
     }
 
     public String toString(){
-        return(id +'('+this.hasBeenLit()+')');
+        return(id+" " +'('+this.hasBeenLit()+')');
         //return id;
     }
 }
