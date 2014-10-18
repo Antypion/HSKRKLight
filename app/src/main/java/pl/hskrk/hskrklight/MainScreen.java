@@ -25,7 +25,7 @@ import java.util.Iterator;
 
 
 public class MainScreen extends Activity {
-    public final String UrlToggle = "http://light.at.hskrk.pl/api/v2/light/toggle/";
+    public final String UrlToggle = "http://al2.hskrk.pl/api/v2/light/toggle/";
     public final String UrlGet = "http://al2.hskrk.pl/api/v2/light/get_state/all";
     private ArrayAdapter<String> LightsAdapter;
     //private static ArrayList<Light> Lights;
@@ -86,11 +86,12 @@ public class MainScreen extends Activity {
             String name = info.split(" ")[0];
             Log.d("[name]",name);
             if(isConnectedToWifi()){
-                new AsyncDownloader().execute(UrlToggle+name.toLowerCase());
-                updateView();
+                new AsyncDownloader().execute(UrlToggle+name);
             } else {
                 Toast.makeText(getApplicationContext(),"Sorry, you aren't connected to wifi",Toast.LENGTH_SHORT).show();
             }
+            for(i=0;i<3;i++)
+            updateView();
         }
     };
 
