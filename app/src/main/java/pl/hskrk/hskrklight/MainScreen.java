@@ -15,7 +15,6 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
@@ -44,6 +43,12 @@ public class MainScreen extends Activity {
     @Override
     protected void onStart(){
         super.onStart();
+        updateView();
+    }
+
+    @Override
+    protected void onRestart(){
+        super.onRestart();
         updateView();
     }
 
