@@ -6,6 +6,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,13 +18,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
+import android.support.v4.app.FragmentActivity;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
 
-public class MainScreen extends Activity {
+public class MainScreen extends FragmentActivity {
     public final String UrlToggle = "http://al2.hskrk.pl/api/v2/light/toggle/";
     public final String UrlGet = "http://al2.hskrk.pl/api/v2/light/get_state/all";
     private ArrayAdapter<String> LightsAdapter;
@@ -43,12 +44,18 @@ public class MainScreen extends Activity {
     @Override
     protected void onStart(){
         super.onStart();
+        Toast.makeText(this,"Please wait a while, app is fetching data",Toast.LENGTH_LONG).show();
         updateView();
     }
 
     @Override
     protected void onRestart(){
         super.onRestart();
+    }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
         updateView();
     }
 
@@ -114,7 +121,12 @@ public class MainScreen extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
-            return true;
+            DialogFragment newFrag = new WhoIsDialog();
+            newFrag.show(getSupportFragmentManager(), "whois");
+
+        } else if (id == R.id.action_sensors){
+            DialogFragment newFrag = new SensorsDialog();
+            newFrag.show(getSupportFragmentManager(), "sensors");
         }
         return super.onOptionsItemSelected(item);
     }

@@ -3,7 +3,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainScreen" >
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+        android:title="Whois"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+    <item android:id="@+id/action_sensors"
+        android:title="Sensors"
         android:orderInCategory="100"
         app:showAsAction="never" />
 </menu>

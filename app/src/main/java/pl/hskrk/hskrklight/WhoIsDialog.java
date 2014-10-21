@@ -33,7 +33,7 @@ public class WhoIsDialog extends DialogFragment {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         try {
             builder.setMessage(new String("Devices: " + obj.getInt("total_devices_count")
-                 + "\n" + "People:" + obj.getJSONArray("users").toString().replace('[',' ').replace(']',' '))).setNegativeButton("Return",
+                 + "\n" + "People:" + obj.getJSONArray("users").toString().replace('[',' ').replace(']',' ').replace('\"',' '))).setNegativeButton("Return",
                 new DialogInterface.OnClickListener() {
                 public void onClick(DialogInterface dialog, int id) {
                     // User cancelled the dialog
